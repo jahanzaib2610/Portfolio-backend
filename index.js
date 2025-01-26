@@ -13,7 +13,7 @@ app.use(express.json()); // To parse JSON data from the request body
 // MongoDB setup
 mongoose
   .connect(
-    process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/Portfolio-DB",
+    process.env.MONGODB_URI,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("MongoDB connected"))
@@ -33,7 +33,7 @@ const FormData = mongoose.model("portfolio-users", formSchema);
 
 // Route to handle form submission
 app.get('/', (req, resp) => {
-    resp.send('Congratulations! Portfolio Server is running...')
+    resp.send('Congratulations! Portfolio Server is running....................')
 })
 app.post("/send-email", async (req, res) => {
   console.log(req.body);
@@ -89,7 +89,7 @@ app.post("/send-email", async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5500;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
